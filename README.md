@@ -62,6 +62,7 @@ Instead of running all scripts separately, you can run one main.py script and pa
 - ID of the SpaceX launch
 - the count of the images of the day from https://apod.nasa.gov/apod/astropix.html
 - the specific date YYYY-MM-DD for images of the Earth from https://epic.gsfc.nasa.gov/.
+
 In this case all the scripts will be run sequentially, one after another.
 
 ```bash
