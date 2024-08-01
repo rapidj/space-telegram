@@ -1,7 +1,7 @@
-from nasa_spacex_api import fetch_nasa_token
-from fetch_spacex_images import fetch_spacex_last_launch
-from fetch_nasa_images import fetch_nasa_images
-from fetch_nasa_epic_images import fetch_nasa_epic_images
+from nasa_spacex_helpers import fetch_nasa_token
+from fetch_spacex_images import fetch_spacex_links, fetch_spacex_last_launch
+from fetch_nasa_images import fetch_nasa_links, fetch_nasa_images
+from fetch_nasa_epic_images import fetch_nasa_epic_links, fetch_nasa_epic_images
 import argparse
 
 
@@ -14,9 +14,12 @@ def main():
     args = parser.parse_args()
 
     nasa_token = fetch_nasa_token()
-    fetch_spacex_last_launch(args.id)  # Example '5eb87d47ffd86e000604b38a'
-    fetch_nasa_images(token=nasa_token, count=args.count)  # Example count=2
-    fetch_nasa_epic_images(token=nasa_token, date=args.date)  # Example date='2019-05-30'
+    spacex_links = fetch_spacex_links(args.id) # Example '5eb87d47ffd86e000604b38a'
+    fetch_spacex_last_launch(spacex_links)
+    nasa_links = fetch_nasa_links(token=nasa_token, count=args.count)  # Example count=2
+    fetch_nasa_images(nasa_links)
+    nasa_links = fetch_nasa_epic_links(token=nasa_token, date=args.date)  # Example date='2019-05-30'
+    fetch_nasa_epic_images(nasa_links=nasa_links, token=nasa_token)
 
 
 if __name__ == '__main__':

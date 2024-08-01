@@ -57,4 +57,13 @@ Once all images have been published, images will start to be published in random
 ```bash
 $ python publish_images_bot.py 0.0001
 ```
-  
+
+Instead of running all scripts separately, you can run one main.py script and pass it parameters:
+- ID of the SpaceX launch
+- the count of the images of the day from https://apod.nasa.gov/apod/astropix.html
+- the specific date YYYY-MM-DD for images of the Earth from https://epic.gsfc.nasa.gov/.
+In this case all the scripts will be run sequentially, one after another.
+
+```bash
+$ python main.py '5eb87d47ffd86e000604b38a' 2 0.0001
+```
